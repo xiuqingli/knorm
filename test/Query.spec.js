@@ -671,8 +671,8 @@ describe('Query', () => {
       });
     });
 
-    describe("with 'from' configured", () => {
-      it('supports a string value', async () => {
+    describe.only("with 'from' configured", () => {
+      it('supports string values', async () => {
         const query = new Query(User).from('user');
         await expect(
           query.fetch(),
@@ -704,7 +704,7 @@ describe('Query', () => {
         );
       });
 
-      it('supports an sql-bricks instance value', async () => {
+      it('supports sql-bricks instance values', async () => {
         const query = new Query(User);
         query.from(query.sql('user'));
         await expect(
@@ -737,7 +737,7 @@ describe('Query', () => {
         );
       });
 
-      it('supports options', async () => {
+      it('works with other query options', async () => {
         const query = new Query(User)
           .from('user')
           .fields(['id', 'name'])
